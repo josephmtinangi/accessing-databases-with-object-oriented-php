@@ -1,0 +1,11 @@
+{
+    "name": "joseph/accessing-databases-with-object-oriented-php",
+    "description": "Access database with php in object oriented way",
+    "authors": [
+        {
+            "name": "Joseph Mtinangi",
+            "email": "josephmtinangi@gmail.com"
+        }
+    ],
+    "require": {}
+}
