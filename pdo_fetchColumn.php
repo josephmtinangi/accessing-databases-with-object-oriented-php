@@ -27,7 +27,7 @@ try {
                 <tr>
                     <th>Column</th>
                 </tr>
-                <?php while ($col = $result->fetchColumn()): ?>
+                <?php while ($col = $result->fetchColumn(1)): ?>
                     <tr>
                         <td><?= $col; ?></td>
                     </tr>
