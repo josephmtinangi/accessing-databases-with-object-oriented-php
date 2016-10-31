@@ -1,7 +1,7 @@
 <?php
 try {
     require_once 'includes/pdo_connect.php';
-    $sql = 'SELECT name, email, created_at FROM users ORDER BY name';
+    $sql = 'SELECT name, email, created_at FROM users WHERE name = "Joseph" ORDER BY name';
 
     $result = $db->query($sql);
 } catch (Exception $e) {
@@ -23,24 +23,28 @@ try {
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
-            <?php $row = $result->fetch(); ?>
-            <?php if (!$row): ?>
-                echo "No result found.";
+            <?php if ($result): ?>
+                <?php $row = $result->fetch(); ?>
+                <?php if (!$row): ?>
+                    echo "No result found.";
                 <?php else: ?>
-                <table class="table table-striped">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Joined</th>
-                    </tr>
-                    <?php do { ?>
+                    <table class="table table-striped">
                         <tr>
-                            <td><?= $row['name']; ?></td>
-                            <td><?= $row['email']; ?></td>
-                            <td><?= $row['created_at']; ?></td>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Joined</th>
                         </tr>
-                    <?php } while ($row = $result->fetch()); ?>
-                </table>
+                        <?php do { ?>
+                            <tr>
+                                <td><?= $row['name']; ?></td>
+                                <td><?= $row['email']; ?></td>
+                                <td><?= $row['created_at']; ?></td>
+                            </tr>
+                        <?php } while ($row = $result->fetch()); ?>
+                    </table>
+                <?php endif; ?>
+            <?php else: ?>
+                <h2>No result found</h2>
             <?php endif; ?>
         </div>
     </div>
