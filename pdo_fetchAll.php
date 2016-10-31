@@ -4,7 +4,7 @@ try {
     $sql = 'SELECT name, email, created_at FROM users ORDER BY name';
 
     $result = $db->query($sql);
-    $all = $result->fetchAll(PDO::FETCH_ASSOC);
+    $all = $result->fetchAll(PDO::FETCH_NUM);
 } catch (Exception $e) {
     $error = $e->getMessage();
 }
